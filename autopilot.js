@@ -70,12 +70,20 @@ function act(car) {
 }
 
 function commandFleet(cars) {
-
+  for (var i = 0; i < cars.length; i++) {
+    var action = act(car);
+    console.log('car ' + i + 1 + ": " + action);
+  }
+  console.log('---');
 }
 
 
 function addOneCarPerDay(cars, numDays) {
-  
+  for (var i = 0; i < numDays; i++) {
+    var newCar = getNewCar;
+    console.log(addCar(cars, newCar));
+    commandFleet(cars)
+  }
 }
 
 
