@@ -1,17 +1,18 @@
-function getNewCar() {
+var getNewCar = {
   city: 'Toronto',
   passengers: 0,
   gas: 100
 }
+
 
 function addCar(cars, newCars) {
   cars.push(newCars)
 }
 
 function pickUpPassenger(car) {
-  car[passengers] ++;
-  car[gas] -= 10;
-  console.log('picked up passenger. car now has ' + passengers + ' passengers');
+  car.passengers ++;
+  car.gas -= 10;
+  console.log('picked up passenger. car now has ' + car.passengers + ' passengers');
 }
 
 function getDestination(car) {
@@ -36,13 +37,13 @@ function getGasDisplay(gasAmount) {
   console.log(gasAmount + '%');
 }
 
-function drive(car, city_distance) {
+function drive(car, cityDistance) {
   if (car.gas < cityDistance) {
     return fillUpGas(car)
   }
   car.city = getDestination(car);
   car.gas -= cityDistance;
-  console.log('drove to ' + car.city '. remaining gas: ' + getGasDisplay(car.gas));
+  console.log('drove to ' + car.city + '. remaining gas: ' + getGasDisplay(car.gas));
 }
 
 function dropOffPassengers(car) {
@@ -71,7 +72,7 @@ function act(car) {
 
 function commandFleet(cars) {
   for (var i = 0; i < cars.length; i++) {
-    var action = act(car);
+    var action = act(cars[i]);
     console.log('car ' + i + 1 + ": " + action);
   }
   console.log('---');
